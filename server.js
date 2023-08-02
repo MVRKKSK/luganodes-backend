@@ -9,7 +9,11 @@ const dotenv = require('dotenv')
 dotenv.config()
 const db = require("./utils/db")
 db();
-app.use(cors())
+var corsOptions = {
+    origin: "*"
+};
+
+app.use(cors(corsOptions));
 app.use(morgan("dev"))
 app.use(bodyParser.urlencoded({
     extended: true
